@@ -1855,29 +1855,29 @@ button,
   flex-shrink: 1;
   width: 100%; }
   #main > .inner {
-    padding: 0 6em 0.1em 6em ;
+    padding: 0 8em 0.1em 6em ;
     margin: 0 auto;
     max-width: 110em; }
     #main > .inner > section {
-      padding: 6em 0 4em 0 ;
+      padding: 2em 0 4em 0 ;
       border-top: solid 2px rgba(210, 215, 217, 0.75); }
       #main > .inner > section:first-of-type {
         border-top: 0 !important; }
   @media screen and (max-width: 1680px) {
     #main > .inner {
-      padding: 0 5em 0.1em 5em ; }
+      padding: 0 8em 0.1em 5em ; }
       #main > .inner > section {
-        padding: 5em 0 3em 0 ; } }
+        padding: 2em 0 3em 0 ; } }
   @media screen and (max-width: 1280px) {
     #main > .inner {
-      padding: 0 4em 0.1em 4em ; }
+      padding: 0 6em 0.1em 10em ; }
       #main > .inner > section {
-        padding: 4em 0 2em 0 ; } }
+        padding: 2em 0 2em 0 ; } }
   @media screen and (max-width: 736px) {
     #main > .inner {
-      padding: 0 2em 0.1em 2em ; }
+      padding: 0 5em 0.1em 9em ; }
       #main > .inner > section {
-        padding: 3em 0 1em 0 ; } }
+        padding: 1em 0 1em 0 ; } }
 
 /* Sidebar */
 #search form {
@@ -2076,7 +2076,7 @@ button,
   display: -ms-flex;
   display: flex;
   border-bottom: solid 5px #f56a6a;
-  padding: 6em 0 1em 0;
+  padding: 3em 0 0.3em 0;
   position: relative; }
   #header > * {
     -moz-flex: 1;
@@ -2093,7 +2093,7 @@ button,
     text-align: right; }
   @media screen and (max-width: 1680px) {
     #header {
-      padding-top: 5em; } }
+      padding-top: 2em; } }
   @media screen and (max-width: 736px) {
     #header {
       padding-top: 6.5em; }
@@ -2109,7 +2109,7 @@ button,
 
 /* Banner */
 #banner {
-  padding: 6em 0 4em 0 ;
+  padding: 6em 0 5em 0 ;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -2271,3 +2271,177 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
+
+
+/* ============================================================
+   Research page — paper entry components
+   ============================================================ */
+
+/* Scoped top padding: research/teaching/cv pages (have #header) */
+#main > .inner:has(#header) {
+  padding-top: 1.5em; }
+
+/* index.html top space — adjust this value only to move name up/down */
+#main > .inner:has(#banner) {
+  padding-top: 4em; }
+
+/* Section headings: Working Papers / Work in Progress */
+.research-section {
+  max-width: 860px;
+  margin-top: 0; }
+
+.research-section h3 {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #aaa;
+  border-bottom: none;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.5em;
+  margin-top: 2em;
+  font-weight: 600; }
+
+/* Paper list container */
+.paper-list {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+
+/* Every entry gets a top border; last entry also gets a bottom border */
+.paper-list > li.paper-entry {
+  border-top: 1px solid #f0f0f0; }
+
+.paper-list > li.paper-entry:last-child {
+  border-bottom: 1px solid #f0f0f0; }
+
+/* Clickable header row */
+.paper-entry .paper-header {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1em;
+  padding: 0.8em 0;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.paper-entry .paper-header-left {
+  -webkit-flex: 1;
+  flex: 1; }
+
+/* Title — default state: plain dark, no underline */
+.paper-entry .paper-title {
+  font-weight: 600;
+  font-size: 0.97em;
+  color: #3d4449;
+  line-height: 1.5;
+  display: inline;
+  border-bottom: none;
+  -moz-transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out; }
+
+/* Title — with link: turns accent color on hover, same as coauthors */
+.paper-entry .paper-title[data-href] {
+  cursor: pointer; }
+
+.paper-entry .paper-header:hover .paper-title[data-href] {
+  color: #f56a6a; }
+
+/* Co-authors */
+.paper-entry .paper-coauthors {
+  font-size: 0.88em;
+  color: #888;
+  margin-top: 0.2em; }
+
+.paper-entry .paper-coauthors a {
+  color: #888;
+  text-decoration: none;
+  border-bottom: none;
+  -moz-transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out; }
+
+.paper-entry .paper-coauthors a:hover {
+  color: #f56a6a; }
+
+/* Chevron */
+.paper-entry .paper-chevron {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  font-size: 0.78em;
+  color: #ccc;
+  margin-top: 0.3em;
+  pointer-events: none;
+  -moz-transition: -moz-transform 0.2s ease, color 0.15s;
+  -webkit-transition: -webkit-transform 0.2s ease, color 0.15s;
+  -ms-transition: -ms-transform 0.2s ease, color 0.15s;
+  transition: transform 0.2s ease, color 0.15s; }
+
+.paper-entry .paper-header.open .paper-chevron {
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  color: #999; }
+
+/* Abstract body */
+.paper-entry .abstract-body {
+  display: none;
+  padding: 0 0 1em 0;
+  font-size: 0.91em;
+  color: #7f888f;
+  line-height: 1.75;
+  text-align: justify; }
+
+.paper-entry .abstract-body.visible {
+  display: block;
+  -webkit-animation: paperFadeIn 0.2s ease;
+  animation: paperFadeIn 0.2s ease; }
+
+.paper-entry .abstract-label {
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #bbb;
+  margin-bottom: 0.4em;
+  font-weight: 600; }
+
+/* PDF download link inside abstract */
+.paper-entry .paper-download {
+  display: inline-block;
+  margin-top: 0.6em;
+  font-size: 0.82em;
+  color: #9fa3a6;
+  text-decoration: none;
+  border: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  border-radius: 3px;
+  padding: 3px 10px;
+  -moz-transition: background 0.15s, color 0.15s;
+  -webkit-transition: background 0.15s, color 0.15s;
+  -ms-transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s; }
+
+.paper-entry .paper-download:hover {
+  background: #f5f5f5;
+  color: #3d4449;
+  border-bottom-color: #e8e8e8; }
+
+@-webkit-keyframes paperFadeIn {
+  from { opacity: 0; -webkit-transform: translateY(-4px); }
+  to   { opacity: 1; -webkit-transform: translateY(0); } }
+
+@keyframes paperFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); } }
+
+/* Work in Progress — same entry class, same title style as working papers */
+.wip-list .paper-entry .paper-title {
+  font-weight: 600;
+  color: #3d4449; }
